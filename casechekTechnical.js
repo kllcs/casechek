@@ -33,8 +33,8 @@ var meta = {
 };
 
 //test output
-/*
-fs.writeFile('C:/Users/kasid/Desktop/casechek/results/results.json', HL7ToJSON(), err => {
+
+/*fs.writeFile('C:/Users/kasid/Desktop/casechek/results/results.json', HL7ToJSON(), err => {
         if (err) {
             console.error(err);
         } else {
@@ -46,7 +46,7 @@ fs.writeFile('C:/Users/kasid/Desktop/casechek/results/results.json', HL7ToJSON()
 function HL7ToJSON(){
 
     //read file's contents
-    fs.readFile("HL7-1.txt", (err, HL7) => {
+    fs.readFile("HL7-3.txt", (err, HL7) => {
         if (err) {
             console.error(err);
             return;
@@ -173,8 +173,13 @@ function HL7ToJSON(){
 
                     //loop through the data in NTE-3 that was split by " - " to get implant information
                     for(var k = 0; k < NTE_3Split.length; k++){
+                        // if any value is empty, parseError = true
+                        if(NTE_3Split[k].substring(5) == "" || NTE_3Split[k] == "" || NTE_3Split[k] == "null"){
+                            implant.parseError = true;
+                        }
+                        
                         //implant quantity
-                        if(NTE_3Split[k].substring(0,5) == "Qty: " && NTE_3Split[k].length > 5){
+                        else if(NTE_3Split[k].substring(0,5) == "Qty: " && NTE_3Split[k].length > 5){
                             implant.quantity = NTE_3Split[k].substring(5);
 
                             //check to make sure it is interger not string
@@ -198,7 +203,7 @@ function HL7ToJSON(){
                         }
 
                         //implant description
-                        else if(NTE_3Split[k] != "null" || NTE_3Split[k] != ""){
+                        else if(NTE_3Split[k] != "null" && NTE_3Split[k] != ""){
                             implant.description = NTE_3Split[k];
                         }
 
