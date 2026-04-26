@@ -1,0 +1,13 @@
+MSH|^~&|EPIC|MERCY|CASECHEK||20230525091532|JSMITH|SIU^S14|7823|P|2.3
+SCH||AUTO291847|||||||9600|S|^^^202305250820|||||||||JSMITH^SMITH^JAMES|||||Sch^Scheduled^SCHEDULING
+AIS|1||2080000041^TOTAL KNEE ARTHROPLASTY|20230525082000|1800|S|3600|S||||B^Bilateral
+NTE|1||TOTAL KNEE ARTHROPLASTY - IMPLANT REQUIRED|Procedure Description
+NTE|2||IMPLANT: Zimmer Biomet Persona Knee System - Qty: 3 - LOT: ZB-2024-88821|Implant Detail
+NTE|3||IMPLANT: Zimmer Biomet Tibial Insert - Qty: 1 - LOT: ZB-2024-55342|Implant Detail
+NTE|4||IMPLANT: Stryker Triathlon Patella Button - Qty: two|Implant Detail
+NTE|5||IMPLANT: DePuy Synthes Attune Femoral Component - Qty: 2 - LOT: DS-2024-33107|Implant Detail
+NTE|6||ALLERGIES: Penicillin|Patient Flags
+NTE|7||SPECIAL INSTRUCTIONS: Patient requires latex-free environment|Nursing Notes environment|Nursing Notes
+AIL|1||^OR SUITE 4^^NORTH WING|
+AIP|1||289^Smith^James^^^^^^EPIC^^^^PNPI|1.1^Primary|ORTHO|20230525082000|1800|S|7200|S
+AIP|2|||2.10^Anesthesiologist||20230525080000|0|S|9600|S
