@@ -1,0 +1,13 @@
+MSH|^~\&|EPIC|STLUKESWEST|CASECHEK||20231114153200|AGARCIA|SIU^S14|10241|P|2.3
+SCH||PLR-00482|||||||3600|S|^^^202311150730|||||||||AGARCIA^GARCIA^ANA|||||Can^Cancelled^SCHEDULING
+AIS|1||4510000078^REVISION HIP ARTHROPLASTY|20231115073000|2400|S|4800|S||||L^Left
+NTE|1||REVISION HIP - COMPLEX CASE|Procedure Description
+NTE|2||IMPLANT: Smith & Nephew Polar3 Liner - Qty: 1 - LOT: |Implant Detail
+NTE|3||IMPLANT:  - Qty: 1 - LOT: SN-2024-40002|Implant Detail
+NTE|4||IMPLANT: Stryker Accolade II Femoral Stem - Qty: abc - LOT: ST-2024-71190|Implant Detail
+NTE|5||IMPLANT:|Implant Detail
+NTE|6||INSURANCE: Pre-auth pending #PA-998271|Authorization
+NTE|7||ALLERGIES: Latex, Sulfa|Patient Flags
+NTE|8||PATIENT TRANSPORT: Requires bariatric stretcher|Logistics
+AIP|1||1042^Garcia^Ana^^^^^^EPIC^^^^PNPI|1.1^Primary|ORTHO|20231115073000|2400|S|4800|S
+AIL|1||^OR SUITE 12^^EAST PAVILION|

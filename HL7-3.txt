@@ -1,0 +1,15 @@
+MSH|^~\&|EPIC|CEDARSSINAI|CASECHEK||20240301060000|TCHEN|SIU^S14|55910|P|2.3
+SCH||CSMC-20240301-091|||||||7200|S|^^^202403010700|||||||||TCHEN^CHEN^TERESA|||||Bkd^Booked^SCHEDULING
+AIS|1||6670000215^POSTERIOR SPINAL FUSION L3-S1|20240301070000|5400|S|10800|S||||R^Right
+NTE|1||POSTERIOR SPINAL FUSION L3-S1 WITH INSTRUMENTATION AND INTERBODY CAGE PLACEMENT|Procedure Description
+NTE|2||IMPLANT: Medtronic CD Horizon Pedicle Screw 6.5x45mm - Qty: 8 - LOT: MD-2024-10050|Implant Detail
+NTE|3||IMPLANT: Medtronic CD Horizon Rod 5.5mm Titanium - Qty: 2 - LOT: MD-2024-10051|Implant Detail
+NTE|4||IMPLANT: DePuy Synthes CONCORDE Interbody Cage 12mm - Qty: 3 - LOT: DS-2024-70803|Implant Detail
+NTE|5||IMPLANT: Medtronic Infuse Bone Graft Small Kit - Qty: 1 - LOT: MD-2024-22200|Implant Detail
+NTE|6||IMPLANT: Stryker VariAx Locking Cross-Connector - Qty: 4 - LOT: ST-2024-88410|Implant Detail
+NTE|7||IMPLANT: NuVasive Modulus PEEK Rod 4.75mm - Qty: 2 - LOT: NV-2024-60055|Implant Detail
+NTE|8||BLOOD PRODUCTS: 2 units PRBC on hold|Nursing Notes
+AIL|1||^NEURO OR 3^^SOUTH TOWER|
+AIP|1||5587^Chen^Teresa^^^^^^EPIC^^^^PNPI|1.1^Primary|NEURO|20240301070000|5400|S|10800|S
+AIP|2|||2.10^Anesthesiologist||20240301063000|0|S|10800|S
+AIP|3|||3.5^Neuro Monitoring Tech||20240301065000|0|S|10800|S
