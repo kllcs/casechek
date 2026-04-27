@@ -33,8 +33,8 @@ var meta = {
 };
 
 //test output
-/*
-fs.writeFile('C:/Users/kasid/Desktop/casechek/results/results.json', HL7ToJSON(), err => {
+
+/*fs.writeFile('C:/Users/kasid/Desktop/casechek/results/results.json', HL7ToJSON(), err => {
         if (err) {
             console.error(err);
         } else {
@@ -54,6 +54,11 @@ function HL7ToJSON(){
         
         //get data from file as a string
         var HL7data = HL7.toString();
+
+        //if it is a blank message, exit
+        if(HL7data == "null" || HL7data == ""){
+            return;
+        }
 
         //split the HL7 data into segments
         var HL7dataSegments = HL7data.split("\n");
@@ -83,6 +88,11 @@ function HL7ToJSON(){
             if(HL7dataSegments[j].substring(0, 3) == "MSH"){
                 //split MSH segment by pipes | to get fields
                 var MSHdata = HL7dataSegments[j].split("|");
+
+                //if not SIU, exit
+                if(MSHdata[8].substring(0,3) != "SIU"){
+                    return;
+                }
 
                 //Hospital ID: MSH-4
                 obj.hospitalId = MSHdata[3];
@@ -173,8 +183,13 @@ function HL7ToJSON(){
 
                     //loop through the data in NTE-3 that was split by " - " to get implant information
                     for(var k = 0; k < NTE_3Split.length; k++){
+                        // if any value is empty, parseError = true
+                        if(NTE_3Split[k].substring(5) == "" || NTE_3Split[k] == "" || NTE_3Split[k] == "null"){
+                            implant.parseError = true;
+                        }
+                        
                         //implant quantity
-                        if(NTE_3Split[k].substring(0,5) == "Qty: " && NTE_3Split[k].length > 5){
+                        else if(NTE_3Split[k].substring(0,5) == "Qty: " && NTE_3Split[k].length > 5){
                             implant.quantity = NTE_3Split[k].substring(5);
 
                             //check to make sure it is interger not string
@@ -198,7 +213,7 @@ function HL7ToJSON(){
                         }
 
                         //implant description
-                        else if(NTE_3Split[k] != "null" || NTE_3Split[k] != ""){
+                        else if(NTE_3Split[k] != "null" && NTE_3Split[k] != ""){
                             implant.description = NTE_3Split[k];
                         }
 
@@ -213,13 +228,12 @@ function HL7ToJSON(){
                 }
 
                 //procedure description
-                else if(NTEdata[4] == "Procedure Description"){
+                else if(NTEdata[4].substring(0,21) == "Procedure Description"){
                     obj.procedureDescription = NTEdata[3];
                 }
 
                 //unrecognized NTE segment
                 else{
-                    //unrecognizedNteCount++;
                     meta.unrecognizedNteCount = meta.unrecognizedNteCount + 1;
                 }                        
             }
