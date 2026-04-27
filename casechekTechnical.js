@@ -46,7 +46,7 @@ var meta = {
 function HL7ToJSON(){
 
     //read file's contents
-    fs.readFile("HL7-3.txt", (err, HL7) => {
+    fs.readFile("HL7-1.txt", (err, HL7) => {
         if (err) {
             console.error(err);
             return;
@@ -54,6 +54,11 @@ function HL7ToJSON(){
         
         //get data from file as a string
         var HL7data = HL7.toString();
+
+        //if it is a blank message, exit
+        if(HL7data == "null" || HL7data == ""){
+            return;
+        }
 
         //split the HL7 data into segments
         var HL7dataSegments = HL7data.split("\n");
@@ -83,6 +88,11 @@ function HL7ToJSON(){
             if(HL7dataSegments[j].substring(0, 3) == "MSH"){
                 //split MSH segment by pipes | to get fields
                 var MSHdata = HL7dataSegments[j].split("|");
+
+                //if not SIU, exit
+                if(MSHdata[8].substring(0,3) != "SIU"){
+                    return;
+                }
 
                 //Hospital ID: MSH-4
                 obj.hospitalId = MSHdata[3];
@@ -218,13 +228,12 @@ function HL7ToJSON(){
                 }
 
                 //procedure description
-                else if(NTEdata[4] == "Procedure Description"){
+                else if(NTEdata[4].substring(0,21) == "Procedure Description"){
                     obj.procedureDescription = NTEdata[3];
                 }
 
                 //unrecognized NTE segment
                 else{
-                    //unrecognizedNteCount++;
                     meta.unrecognizedNteCount = meta.unrecognizedNteCount + 1;
                 }                        
             }
